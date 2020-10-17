@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 
 app.get("/todos", async (req, res) => {
     try {
-        const todos = await pool.query("select * from todo");
+        const todos = await pool.query("select * from todo order by id");
         res.json(todos.rows);
     } catch (e) {
         console.error(e.message);
